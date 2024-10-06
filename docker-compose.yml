@@ -1,0 +1,9 @@
+services:
+  web:
+    build: .
+    command: gunicorn --bind 0.0.0.0:8000 --workers 3 --timeout 500 app:app
+    volumes:
+      - ./:/app
+    ports:
+      - 8000:8000
+    restart: unless-stopped
